@@ -2,13 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Config from './Board.js';
 import reportWebVitals from './reportWebVitals';
+import logo from './logo.jpg'
+
+
+import { HashRouter, Route } from 'react-router-dom';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Config />
-  </React.StrictMode>,
+	<div>
+		<img src = {logo} alt= "DareBoard Logo" class = "logo"/>
+
+		<HashRouter>
+			<App />
+		</HashRouter>
+	</div>,
   document.getElementById('root')
 );
 
