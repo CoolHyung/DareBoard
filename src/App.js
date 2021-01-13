@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import StartPage from './StartPage';
 import GamePage from './GamePage';
 
+
 function App() {
  
   return (

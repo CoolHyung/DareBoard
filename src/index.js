@@ -4,17 +4,31 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import logo from './logo.jpg'
-
-
+import firebase from "firebase/app";
 import { HashRouter, Route } from 'react-router-dom';
 
+var firebaseConfig = {
+    apiKey: "AIzaSyB0k2OyIW2S0UZxktO0_kVuPYWTWZOnhUE",
+    authDomain: "dareboard-7896f.firebaseapp.com",
+    projectId: "dareboard-7896f",
+    storageBucket: "dareboard-7896f.appspot.com",
+    messagingSenderId: "244409855639",
+    appId: "1:244409855639:web:c88aaf7c2db2474b8983d2",
+    measurementId: "G-QYNVV7MJS9"
+  };
+firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
 	<div>
+		<code>
+	        <pre>{JSON.stringify(firebase.options, null, 2)}</pre>
+	    </code>
 		<img src = {logo} alt= "DareBoard Logo" class = "logo"/>
 
 		<HashRouter>
 			<App />
 		</HashRouter>
+
+
 	</div>,
   document.getElementById('root')
 );
