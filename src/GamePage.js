@@ -4,11 +4,12 @@ import StartPage from './StartPage'
 
 class GamePage extends React.Component {
 	render() {
-	    return (
-	      <div>
-	        <Board />
-	      </div>
-    	);
+    const { data } = this.props.location // players, board size, suggestions
+    return (
+      <div>
+        <Board />
+      </div>
+  	);
 	}
 }
 

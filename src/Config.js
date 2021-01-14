@@ -1,4 +1,5 @@
 import React from 'react';
+import history from './history'
 
 class Config extends React.Component{
 	constructor(props) {
@@ -12,7 +13,11 @@ class Config extends React.Component{
 
     mySubmitHandler = (event) => {
     	event.preventDefault();
-    	
+    	var data = [this.state.players, this.state.boardsize, this.state.suggestions]
+    	history.push({
+		  pathname: '/game',
+		  data: data // your data array of objects
+		})
     	
   	}
 
