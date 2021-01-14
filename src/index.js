@@ -19,14 +19,12 @@ import history from './history'
 //   };
 // firebase.initializeApp(firebaseConfig);
 ReactDOM.render(
-	<div>
-		<img src = {logo} alt= "DareBoard Logo" class = "logo"/>
+	<div class = "page-layout">
+		<img src = {logo} alt= "logo" class = "logo"/>
 
 		<Router history={history}>
 			<App />
 		</Router>
-
-
 	</div>,
   document.getElementById('root')
 );

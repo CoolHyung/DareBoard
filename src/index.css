@@ -19,7 +19,11 @@ body, html, div {
 }
 
 .logo {
-    /*width: 250px;
-    margin: 0 auto;*/
+    width: 500px;
+    height: 150px;
+    text-align: center;
+}
+
+.page-layout {
     text-align: center;
 }
