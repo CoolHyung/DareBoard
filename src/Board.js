@@ -1,20 +1,27 @@
 import React from 'react';
 
 class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      player: props.player
+    };
+  }
   render() {
     const color_ = this.props.color;
     return (
       <td
         style={{
           overflow:'hidden',
-          width:'25px',
-          height:'25px',
+          width:'100px',
+          height:'100px',
           backgroundColor:'#e4e4a1',
           color:'red',
           boarderColor: 'black',
           border:".5px solid black"
         }}
       onClick={this.props.handleClick} >
+        {this.state.player}
         
       </td>
     )
@@ -22,6 +29,13 @@ class Square extends React.Component {
 }
 
 class Board extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      players: props.players,
+      locs: props.locs
+    };
+  }
   renderSquare() {
     return (
       <Square />
@@ -35,10 +49,14 @@ class Board extends React.Component{
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
         squares.push(<Square key={i} />);
     }
+    for (var i = 0; i < this.state.players.length; i++) {
+      squares[i] = <Square player = {this.state.players[i]} />
+    }
 
     return (
       <div className="board-row">
         {squares}
+
       </div>
     );
   }
