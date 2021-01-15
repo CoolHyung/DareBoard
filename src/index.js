@@ -18,6 +18,8 @@ import history from './history'
 //     measurementId: "G-QYNVV7MJS9"
 //   };
 // firebase.initializeApp(firebaseConfig);
+
+
 ReactDOM.render(
 	<div class = "page-layout">
 		<img src = {logo} alt= "logo" class = "logo"/>

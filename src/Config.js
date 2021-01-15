@@ -38,7 +38,7 @@ class Config extends React.Component{
 			<div>
 		     	<form onSubmit = {this.mySubmitHandler}>
 					<br />
-			        <label htmlFor="players">Players' Names: </label>
+			        <label htmlFor="players">How Many Players?: </label>
 			        <input 
 			        	type="text" 
 			        	onChange = {this.playerHandler}
@@ -47,7 +47,7 @@ class Config extends React.Component{
 			        <br />
 			        <br />
 
-			        <label htmlFor='boardsize'>Board Size: </label>
+			        <label htmlFor='boardsize'>Create Board Size: </label>
 			        <input 
 			        	type="text" 
 			        	onChange = {this.boardHandler}

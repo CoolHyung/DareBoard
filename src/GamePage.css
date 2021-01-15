@@ -4,8 +4,14 @@
 
 }
 
+
+
 div {
 	
 	height: 100%;
 	width: 100%;
+}
+
+.page-layout{
+    text-align: center;
 }
