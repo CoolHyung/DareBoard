@@ -3,6 +3,7 @@ import Board from './Board'
 import StartPage from './StartPage'
 import './GamePage.css'
 import RollDice from './Dice'
+import Newsbox from './Textbox'
 
 class GamePage extends React.Component {
   constructor(props) {
@@ -37,8 +38,10 @@ class GamePage extends React.Component {
     return (
       <div class = "page-layout">
         <Board locs={this.state.locs}/>
-        <RollDice gameState={this.state} stateHandler={this.stateHandler} />
-        
+        <div class = "same-line">
+          <Newsbox /> 
+          <RollDice gameState={this.state} stateHandler={this.stateHandler} />
+        </div>
       </div>
   	);
 
