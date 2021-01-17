@@ -12,12 +12,15 @@ class RollDice extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			thediceroll: '',
+			gameState:props.gameState
 		};
 	}
 
 	roll() {
-		return 1 + Math.floor(Math.random()*6)
+    	var x = 1 + Math.floor(Math.random()*6);
+    	var currPlayer = this.state.gameState.turn;
+    	this.state.gameState.locs[currPlayer] += x;
+    	this.props.stateHandler(this.state.gameState.locs);
 	}
 
 	dicehandler = (event) => {

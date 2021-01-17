@@ -8,19 +8,36 @@ class GamePage extends React.Component {
   constructor(props) {
     super(props);
     const { data } = this.props.location;
+
     var players = data[0].split(",");
+
+    var locs = {};
+    for (var i = 0; i < players.length; i++) {
+      locs[players[i]] = 0;
+    }
+
     this.state = {
-      turn: this.props.turn,
+      turn: players[0],
       players: players,
-      locs: new Array(players.length).fill(0)
+      locs: locs
     };
+
   }
+  stateHandler = (locs) => {
+    this.setState({locs: locs}, () => {
+        console.log(this.state.locs);
+    });
+  }
+
+  componentDidUpdate() {
+  }
+
 	render() {
     
     return (
       <div class = "page-layout">
-        <Board players={this.state.players} locs={this.state.locs}/>
-        <RollDice />
+        <Board locs={this.state.locs}/>
+        <RollDice gameState={this.state} stateHandler={this.stateHandler} />
         
       </div>
   	);

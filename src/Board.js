@@ -34,7 +34,6 @@ class Board extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      players: props.players,
       locs: props.locs
     };
   }
@@ -46,13 +45,18 @@ class Board extends React.Component{
   render() {
 
     var squares = [];
+<<<<<<< HEAD
     for (var i = 0; i < 10; i++) {
+=======
+    for (var i = 0; i < 20; i++) {
+>>>>>>> 06f759bf557b72ee36d7b4004441efb517f53d3d
         // note: we are adding a key prop here to allow react to uniquely identify each
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
         squares.push(<Square key={i} />);
     }
-    for (var i = 0; i < this.state.players.length; i++) {
-      squares[i] = <Square player = {this.state.players[i]} />
+    for (var name in this.state.locs) {
+      var location = this.state.locs[name];
+      squares[location] = <Square player = {name} / >
     }
 
     return (
