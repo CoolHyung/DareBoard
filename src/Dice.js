@@ -24,7 +24,6 @@ class RollDice extends React.Component {
     	event.preventDefault();
     	var x = this.roll()
     	this.setState({thediceroll:x})
-    	alert(this.state.thediceroll)
   	}
 
 	render(){
@@ -33,7 +32,9 @@ class RollDice extends React.Component {
 		     	<form onSubmit = {this.dicehandler}> 
 		     		<button> Roll the Dice </button>
 		     	</form>
+		     	
 		    </div>
+
 			)
 
 	}

@@ -1,4 +1,6 @@
 import React from 'react';
+import './Board.css';
+
 
 class Square extends React.Component {
   constructor(props) {
@@ -44,7 +46,7 @@ class Board extends React.Component{
   render() {
 
     var squares = [];
-    for (var i = 0; i < 50; i++) {
+    for (var i = 0; i < 10; i++) {
         // note: we are adding a key prop here to allow react to uniquely identify each
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
         squares.push(<Square key={i} />);
@@ -54,9 +56,8 @@ class Board extends React.Component{
     }
 
     return (
-      <div className="board-row">
+      <div id="container">
         {squares}
-
       </div>
     );
   }
