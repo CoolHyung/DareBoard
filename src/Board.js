@@ -45,11 +45,7 @@ class Board extends React.Component{
   render() {
 
     var squares = [];
-<<<<<<< HEAD
     for (var i = 0; i < 10; i++) {
-=======
-    for (var i = 0; i < 20; i++) {
->>>>>>> 06f759bf557b72ee36d7b4004441efb517f53d3d
         // note: we are adding a key prop here to allow react to uniquely identify each
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
         squares.push(<Square key={i} />);
