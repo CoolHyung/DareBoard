@@ -12,12 +12,14 @@ class RollDice extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
+			rollednumber: '',
 			gameState:props.gameState
 		};
 	}
 
 	roll() {
     	var x = 1 + Math.floor(Math.random()*6);
+    	this.state.rollednumber = x
     	var currPlayer = this.state.gameState.turn;
     	this.state.gameState.locs[currPlayer] += x;
     	this.props.stateHandler(this.state.gameState.locs);
@@ -35,7 +37,30 @@ class RollDice extends React.Component {
 		     	<form onSubmit = {this.dicehandler}> 
 		     		<button> Roll the Dice </button>
 		     	</form>
-		     	
+
+		     	{(() => {
+		     		switch(this.state.rollednumber) {
+					  case 1:
+					    return (<div> <img src={diceone} width="250" height="250" /> </div>)
+					    break;
+					  case 2:
+					    return (<div><img src={dicetwo} width="250" height="250" /></div>)
+					    break;
+					  case 3:
+					  	return (<div><img src={dicethree} width="250" height="250" /></div>)
+					  	break;
+					  case 4:
+					 	return (<div><img src={dicefour} width="250" height="250" /></div>)
+					  	break;
+					  case 5:
+					  	return (<div><img src={dicefive} width="250" height="250" /></div>)
+					  	break;
+					  case 6:
+					  	return (<div><img src={dicesix} width="250" height="250" /></div>)
+					  	break;
+					  default:    
+					}
+      			})()}
 		    </div>
 
 			)

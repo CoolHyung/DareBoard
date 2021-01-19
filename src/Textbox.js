@@ -6,6 +6,7 @@ class Newsbox extends React.Component {
     return (
       <div className="box-field" className="newsbox">
         <h3>TextBox</h3>
+        <p>Press the "Roll the Dice" Button to start Playing </p>
       </div>
     );
   }
