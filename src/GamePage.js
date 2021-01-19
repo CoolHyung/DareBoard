@@ -37,7 +37,6 @@ class GamePage extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("gp turn " + this.state.turn)
   }
 
 	render() {

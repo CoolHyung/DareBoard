@@ -18,8 +18,6 @@ class RollDice extends React.Component {
 	}
 
 	roll() {
-    	console.log("dice turn " + this.props.gameState.turn)
-
     	var x = 1 + Math.floor(Math.random()*6);
     	this.state.rollednumber = x
     	var currPlayer = this.props.gameState.players[this.props.gameState.turn];
@@ -28,18 +26,10 @@ class RollDice extends React.Component {
     	this.props.stateHandler(nextTurn, this.props.gameState.locs);
 	}
 
-	dicehandler = (event) => {
-    	event.preventDefault();
-    	var x = this.roll()
-    	this.setState({thediceroll:x})
-  	}
-
 	render(){
 		return(
 			<div className = "Dice">
-		     	<form onSubmit = {this.dicehandler}> 
-		     		<button> Roll the Dice </button>
-		     	</form>
+		     	<button onClick = {this.roll.bind(this)}> Roll the Dice </button>
 
 		     	{(() => {
 		     		switch(this.state.rollednumber) {
