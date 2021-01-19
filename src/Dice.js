@@ -11,25 +11,61 @@ import dicesix from './dicesix.jpg'
 class RollDice extends React.Component { 
 	constructor(props){
 		super(props);
+		this.state = {
+			rollednumber: '',
+			gameState:props.gameState
+		};
 	}
 
 	roll() {
     	console.log("dice turn " + this.props.gameState.turn)
 
     	var x = 1 + Math.floor(Math.random()*6);
+    	this.state.rollednumber = x
     	var currPlayer = this.props.gameState.players[this.props.gameState.turn];
     	this.props.gameState.locs[currPlayer] += x;
     	var nextTurn = (this.props.gameState.turn+1)%this.props.gameState.players.length;
     	this.props.stateHandler(nextTurn, this.props.gameState.locs);
 	}
 
+	dicehandler = (event) => {
+    	event.preventDefault();
+    	var x = this.roll()
+    	this.setState({thediceroll:x})
+  	}
+
 	render(){
 		return(
 			<div className = "Dice">
-		     	<button onClick = {this.roll.bind(this)}> Roll the Dice </button>
+		     	<form onSubmit = {this.dicehandler}> 
+		     		<button> Roll the Dice </button>
+		     	</form>
+
+		     	{(() => {
+		     		switch(this.state.rollednumber) {
+					  case 1:
+					    return (<div> <img src={diceone} width="250" height="250" /> </div>)
+					    break;
+					  case 2:
+					    return (<div><img src={dicetwo} width="250" height="250" /></div>)
+					    break;
+					  case 3:
+					  	return (<div><img src={dicethree} width="250" height="250" /></div>)
+					  	break;
+					  case 4:
+					 	return (<div><img src={dicefour} width="250" height="250" /></div>)
+					  	break;
+					  case 5:
+					  	return (<div><img src={dicefive} width="250" height="250" /></div>)
+					  	break;
+					  case 6:
+					  	return (<div><img src={dicesix} width="250" height="250" /></div>)
+					  	break;
+					  default:    
+					}
+      			})()}
 		    </div>
 		)
-
 	}
 } 
 

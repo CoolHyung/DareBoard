@@ -1,4 +1,6 @@
 import React from 'react';
+import './Board.css';
+
 
 class Square extends React.Component {
   constructor(props) {
@@ -53,9 +55,8 @@ class Board extends React.Component{
     }
 
     return (
-      <div className="board-row">
+      <div id="container">
         {squares}
-
       </div>
     );
   

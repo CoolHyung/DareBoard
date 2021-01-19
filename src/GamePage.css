@@ -15,3 +15,8 @@ div {
 .page-layout{
     text-align: center;
 }
+
+.same-line{
+
+	display:flex; flex-direction:row;
+}
