@@ -3,9 +3,6 @@ import React from 'react';
 class Square extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      player: props.player
-    };
   }
   render() {
     const color_ = this.props.color;
@@ -21,8 +18,7 @@ class Square extends React.Component {
           border:".5px solid black"
         }}
       onClick={this.props.handleClick} >
-        {this.state.player}
-        
+        {this.props.players}
       </td>
     )
   }
@@ -41,16 +37,19 @@ class Board extends React.Component{
     );
   }
   render() {
-
+    var board_size = 20
     var squares = [];
-    for (var i = 0; i < 20; i++) {
+    for (var i = 0; i < board_size; i++) {
         // note: we are adding a key prop here to allow react to uniquely identify each
         // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
         squares.push(<Square key={i} />);
     }
     for (var name in this.state.locs) {
       var location = this.state.locs[name];
-      squares[location] = <Square player = {name} / >
+      if (location < board_size) {
+        var prevNames = squares[location].props.players == undefined ? '' : squares[location].props.players + " ";
+        squares[location] = <Square players={prevNames+name} />;
+      }
     }
 
     return (
@@ -59,6 +58,7 @@ class Board extends React.Component{
 
       </div>
     );
+  
   }
 }
 export default Board;

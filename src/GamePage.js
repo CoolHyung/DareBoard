@@ -10,6 +10,9 @@ class GamePage extends React.Component {
     const { data } = this.props.location;
 
     var players = data[0].split(",");
+    for (var i = 0; i < players.length; i++) {
+      players[i] = players[i].trim();
+    }
 
     var locs = {};
     for (var i = 0; i < players.length; i++) {
@@ -17,19 +20,23 @@ class GamePage extends React.Component {
     }
 
     this.state = {
-      turn: players[0],
+      turn: 0,
       players: players,
       locs: locs
     };
 
   }
-  stateHandler = (locs) => {
-    this.setState({locs: locs}, () => {
-        console.log(this.state.locs);
-    });
+  stateHandler = (t, l) => {
+    this.setState(
+      { 
+        turn: t,
+        locs: l
+      }, () => {}
+    );
   }
 
   componentDidUpdate() {
+    console.log("gp turn " + this.state.turn)
   }
 
 	render() {
