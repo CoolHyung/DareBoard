@@ -23,7 +23,8 @@ class RollDice extends React.Component {
     	var currPlayer = this.props.gameState.players[this.props.gameState.turn];
     	this.props.gameState.locs[currPlayer] += x;
     	var nextTurn = (this.props.gameState.turn+1)%this.props.gameState.players.length;
-    	this.props.stateHandler(nextTurn, this.props.gameState.locs);
+    	this.props.stateHandler(nextTurn, this.props.gameState.locs, this.state.rollednumber);
+
 	}
 
 	render(){
@@ -31,7 +32,7 @@ class RollDice extends React.Component {
 			<div className = "Dice">
 		     	<button onClick = {this.roll.bind(this)}> Roll the Dice </button>
 
-		     	{(() => {
+{/*		     	{(() => {
 		     		switch(this.state.rollednumber) {
 					  case 1:
 					    return (<div> <img src={diceone} width="250" height="250" /> </div>)
@@ -53,7 +54,7 @@ class RollDice extends React.Component {
 					  	break;
 					  default:    
 					}
-      			})()}
+      			})()}*/}
 		    </div>
 		)
 	}

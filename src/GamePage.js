@@ -27,18 +27,22 @@ class GamePage extends React.Component {
       players: players,
       locs: locs,
       boardSize: boardSize,
-      suggestions: suggestions
+      suggestions: suggestions,
+      roll: 0
     };
 
   }
-  stateHandler = (t, l) => {
+  stateHandler = (t, l, n) => {
     this.setState(
       { 
         turn: t,
-        locs: l
+        locs: l,
+        roll: n
       }, () => {}
     );
   }
+
+
 
   componentDidUpdate() {
   }
@@ -49,8 +53,8 @@ class GamePage extends React.Component {
       <div class = "page-layout">
         <Board locs={this.state.locs} size={this.state.boardSize}/>
         <div class = "same-line">
-          <Newsbox /> 
           <RollDice gameState={this.state} stateHandler={this.stateHandler} />
+          <Newsbox gameState={this.state}  /> 
         </div>
       </div>
   	);
