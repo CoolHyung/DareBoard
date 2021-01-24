@@ -14,16 +14,20 @@ class GamePage extends React.Component {
     for (var i = 0; i < players.length; i++) {
       players[i] = players[i].trim();
     }
-
     var locs = {};
     for (var i = 0; i < players.length; i++) {
       locs[players[i]] = 0;
     }
 
+    var boardSize = data[1];
+    var suggestions = data[2];
+
     this.state = {
       turn: 0,
       players: players,
-      locs: locs
+      locs: locs,
+      boardSize: boardSize,
+      suggestions: suggestions
     };
 
   }
@@ -43,7 +47,7 @@ class GamePage extends React.Component {
     
     return (
       <div class = "page-layout">
-        <Board locs={this.state.locs}/>
+        <Board locs={this.state.locs} size={this.state.boardSize}/>
         <div class = "same-line">
           <Newsbox /> 
           <RollDice gameState={this.state} stateHandler={this.stateHandler} />

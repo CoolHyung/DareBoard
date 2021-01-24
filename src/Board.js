@@ -39,7 +39,7 @@ class Board extends React.Component{
     );
   }
   render() {
-    var board_size = 20
+    var board_size = this.props.size;
     var squares = [];
     for (var i = 0; i < board_size; i++) {
         // note: we are adding a key prop here to allow react to uniquely identify each
