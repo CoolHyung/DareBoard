@@ -23,18 +23,22 @@ class GamePage extends React.Component {
     this.state = {
       turn: 0,
       players: players,
-      locs: locs
+      locs: locs,
+      roll: 0
     };
 
   }
-  stateHandler = (t, l) => {
+  stateHandler = (t, l, n) => {
     this.setState(
       { 
         turn: t,
-        locs: l
+        locs: l,
+        roll: n
       }, () => {}
     );
   }
+
+
 
   componentDidUpdate() {
   }
@@ -44,9 +48,9 @@ class GamePage extends React.Component {
     return (
       <div class = "page-layout">
         <Board locs={this.state.locs}/>
-        <div class = "same-line">
-          <Newsbox /> 
+        <div>
           <RollDice gameState={this.state} stateHandler={this.stateHandler} />
+          <Newsbox gameState={this.state}  /> 
         </div>
       </div>
   	);
